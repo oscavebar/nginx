@@ -3,12 +3,12 @@
 ## Versión instalada
 Para saber que versión de nginx tenemos instalada solo tenemos que escribir el comando: **nginx -v**
 
-![version](/imagenes/version.png)
+![version](/imagenes/version.PNG)
 
 ## Ficheros de configuración
 Los ficheros de configuraicón de nginx se encuentran en la ruta "/etc/nginx/"
 
-![directorio](/imagenes/directorio.png)
+![directorio](/imagenes/directorio.PNG)
 
 Hay muchos directorios y archivos aquí pero lo que voy a tomar en cuenta es:
 
@@ -20,15 +20,15 @@ Hay muchos directorios y archivos aquí pero lo que voy a tomar en cuenta es:
 
 Al instalar nginx se nos crea una página web por defecto en /var/www/html y sirve para ver si funciona y se ha instalado correctamente.
 
-![paginadefecto](/imagenes/paginadefecto.png)
+![paginadefecto](/imagenes/paginadefecto.PNG)
 
 Ahora voy a modificar la página.
 
-![pagina1](/imagenes/pagina1.png)
+![pagina1](/imagenes/pagina1.PNG)
 
 Cuando lo guardemos, ya se habrán aplicado los cambios a la página web.
 
-![resultado1](/imagenes/resultado1.png)
+![resultado1](/imagenes/resultado1.PNG)
 
 ## Virtual Hosting
 
@@ -41,31 +41,31 @@ Para realizar un ejemplo usaré el servidor que he creado para el ejemplo anteri
 
 
 Está es la página de mi segundo servidor:
-![resultado2](/imagenes/resultado2.png)
+![resultado2](/imagenes/resultado2.PNG)
 
 ### Configuración del servidor de balanceo de carga
 
 Para la configuración del servidor de balanceo de carga instalamos nginx.
 Una vez hecho esto borraremos el sitio activado por defecto  y crearemos un archivo con la ruta y el nombre indicado en la siguiente imagen.
 
-![balanceo1](/imagenes/balanceo1.png)
+![balanceo1](/imagenes/balanceo1.PNG)
 
 Dentro del archivo nuevo creado tenemos que introducir lo siguiente teniendo en cuenta los siguiente puntos:
 - upstream backend nos deja introducir los servidores de las páginas web a través de las ips perteneciente a la red interna. Tenemos que indicar el modo de balance que vas a utilizar, he escogido 'ip_hash' que permite persistir en la sesión.
 -En el apartado de server tienes que especificar las ips de los servidores.
 
-![balanceo1](/imagenes/loadbalancing.png)
+![balanceo1](/imagenes/loadbalancing.PNG)
 
 ### Comprobación
 
 Para comprobar que los fichero no tienen errores de sintaxis o fallos en la configuración escribimos el comando **nginx -t**
 
-![comprobacion](/imagenes/comprobacion.png)
+![comprobacion](/imagenes/comprobacion.PNG)
 
 Si aquí no hay problemas, reiniciamos el servicio de nginx con **systemctl restart nginx.servide**
 
 Finalmente nos vamos al buscador e introducimos la ip del servidor de balanceo y nos llevará a nuestra primera página, si esperamos un poco y volvemos a cargar podremos ver que nos abre la segunda página.
 
-![server1](/imagenes/server1.png)
+![server1](/imagenes/server1.PNG)
 
-![server2](/imagenes/server2.png)
+![server2](/imagenes/server2.PNG)
